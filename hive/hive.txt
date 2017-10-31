@@ -1,0 +1,13 @@
+1、hive的数据类型和数据模型 http://www.cnblogs.com/sharpxiajun/archive/2013/06/03/3114560.html
+
+2、hive介绍 http://www.cnblogs.com/sharpxiajun/archive/2013/06/02/3114180.html
+
+3、hive的安装   http://blog.csdn.net/an342647823/article/details/46048403
+
+4、hive初始化元数据   http://blog.csdn.net/beidiqiuren/article/details/53056270
+
+5、hive基本教程  http://www.yiibai.com/hive/hive_create_table.html
+	http://www.cnblogs.com/1130136248wlxk/articles/5517909.html
+	http://www.cnblogs.com/jingyunyb/p/3401303.html
+
+
