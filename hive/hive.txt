@@ -9,5 +9,4 @@
 5、hive基本教程  http://www.yiibai.com/hive/hive_create_table.html
 	http://www.cnblogs.com/1130136248wlxk/articles/5517909.html
 	http://www.cnblogs.com/jingyunyb/p/3401303.html
-
-
+	http://www.cnblogs.com/1130136248wlxk/category/810308.html
