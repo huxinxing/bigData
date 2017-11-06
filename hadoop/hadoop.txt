@@ -1,0 +1,22 @@
+1、单机安装hadoop   http://blog.csdn.net/zhenzhendeblog/article/details/51602903
+
+2、hadoop安装教程_单机/伪分布式配置_CentOs6.4/Hadoop http://www.powerxing.com/install-hadoop-in-centos/
+
+
+3、hadoop学习路线   http://blog.csdn.net/u012453843/article/category/6887358/3
+
+
+4、hadoop三个文件配置的参数说明  http://blog.csdn.net/yangjl38/article/details/7583374
+
+
+5、hadoop配置文件详解、安装及相关操作   http://www.360doc.com/content/14/0117/16/834950_345989344.shtml
+
+
+6、zookeeper单机伪分布式集成配置   http://blog.csdn.net/tanyujing/article/details/8504481
+
+
+7、伪分布式集群环境hadoop、hbase、zookeeper搭建   http://blog.csdn.net/baolibin528/article/details/43768867
+
+
+8、Hbase配置详解   http://www.cnblogs.com/viviman/archive/2013/03/21/2973539.html
+
