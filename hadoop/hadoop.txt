@@ -17,6 +17,59 @@
 
 
 2、hadoop安装教程_单机/伪分布式配置_CentOs6.4/Hadoop http://www.powerxing.com/install-hadoop-in-centos/
+	（1）、安装SSH、配置SSH无密码登陆
+		>检验SSH：rpm -qa|grep ssh   若已经安装则不需要再次安装
+		>通过yum安装ssh:sudo yum install openssh-clients
+		  sudo yum install openssh-server
+		>执行命令测试ssh是否可用:ssh localhost
+		>使用ssh-keygen生成密钥，并将密钥加入到授权中；
+			cd ~/.ssh/
+			ssh-keygen -t rsa
+			cat id_ras.pub >> authorized_keys
+			chmod 600 ./authorized_keys
+	（2）、伪分布式文件配置
+		>core-site.xml、hdfs-site.xml
+		<configuration>
+		    <property>
+		    	<name>hadoop.tmp.dir</name>
+			<value>file:/usr/local/hadoop/tmp</value>
+			<description>Abase for other temporary directories.</description>
+		    </property>
+		    <property>
+		    	<name>fs.defaultFS</name>
+			<value>hdfs://localhost:9000</value>
+		    </property>
+		</configuration>
+		<configuration>
+		    <property>
+		    	<name>dfs.replication</name>
+			<value>1</value>
+		    </property>
+	            <property>
+		    	<name>dfs.namenode.name.dir</name>
+			<value>file:/usr/local/hadoop/tmp/dfs/name</value>
+		    </property>
+		    <property>
+			<name>dfs.datanode.data.dir</name>						
+			<value>file:/usr/local/hadoop/tmp/dfs/data</value>
+		    </property>									
+		</configuration>
+		>hdfs的WEBUI界面地址为 http://localhost:50070
+		>启动yarn,配置文件mapred-site.xml
+		<configuration>
+		    <property>
+		    	<name>mapreduce.framework.name</name>
+			<value>yarn</value>
+		    </property>
+		</configuration>
+		配置yarn-site.xml
+		<configuration>
+		    <property>
+		    	<name>yarn.nodemanager.aux-services</name>
+			<value>mapreduce_shuffle</value>
+		    </property>
+	        </configuration>
+		yarn的界面地址为：http://localhost:8088/cluster
 
 
 3、hadoop学习路线   http://blog.csdn.net/u012453843/article/category/6887358/3
