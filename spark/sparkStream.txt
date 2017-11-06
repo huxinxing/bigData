@@ -1,0 +1,15 @@
+1、spark入门实战系列--7Spark Streaming（上） http://www.cnblogs.com/shishanyuan/p/4747735.html   
+
+
+2、scala和java两种方式实现SparkStream开发   http://blog.csdn.net/erfucun/article/details/52242024
+
+
+3、 Spark Streaming基于kafka的Dirsct详解   http://blog.csdn.net/erfucun/article/details/52275369
+
+
+4、通过Spark Streaming的foreachRDD把处理后的数据写入外部存储系统   http://blog.csdn.net/erfucun/article/details/52312682
+
+5、通过案例对SparkStream透彻理解  http://blog.csdn.net/erfucun/article/details/52291761
+
+
+6、
