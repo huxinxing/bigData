@@ -1,4 +1,20 @@
 1、单机安装hadoop   http://blog.csdn.net/zhenzhendeblog/article/details/51602903
+	
+	（1）、配置ip、主机名
+		>查看主机名相关设置：hostnameclt
+		>只查看静态、瞬态或灵活主机名：hostnameclt --static\hostname --transient\hostnameclt --pretty
+		>同时修改三个主机名：静态、瞬态和灵活主机名:hostnameclt set-hostname huxinxing
+		>就像上面展示的那样，在修改静态/瞬态主机名时，任何特殊字符或者空白字符会被移除，而提供的参数中的任何大写字母会自动化转化为小写。一旦修改了静态主机名，/etc/hostname将被自动更新。然而,/etc/hosts不会更新以保存所修改的，所以你每次在修改主机名后一定要手动更新/etc/hosts，之后在重启CentOS。否则系统再启动时会很慢。
+		>手动更新/etc/hosts: 192.168.2.110 huxinxing mapleleaf。
+		>之后重启CentOS7
+	（2）、安装jdk,并设置环境变量
+	（3）、下载hadoop,并设置hadoop环境变量
+	（4）、修改4个配置文件
+	（5）、格式化hdfs
+	（6）、启动hadoop
+	（7）、查看hadoop运行情况
+
+
 
 2、hadoop安装教程_单机/伪分布式配置_CentOs6.4/Hadoop http://www.powerxing.com/install-hadoop-in-centos/
 
