@@ -1,0 +1,10 @@
+1、群集kafka安装配置   http://blog.csdn.net/desilting/article/details/22872839
+	（1）、配置server.properties
+		>broker.id
+		>host.name 
+		>zookeeper.connect
+
+
+2、kafka伪分布式安装  http://blog.csdn.net/jameshadoop/article/details/49664767
+
+

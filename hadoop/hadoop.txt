@@ -23,6 +23,10 @@
 		DataNode
 		Jps
 		则说明运行成功
+	（8）、centOS关闭防火墙
+		systemctl stop firewalld.service #停止firewall
+		systemctl disable firewalld.service #禁止firewall开机启动
+		firewall-cmd --state #查看默认防火墙状态（关闭后显示notrunning，开启后显示running）
 
 
 
@@ -99,3 +103,5 @@
 
 8、Hbase配置详解   http://www.cnblogs.com/viviman/archive/2013/03/21/2973539.html
 
+
+9、hadoop集群安装  http://www.linuxidc.com/Linux/2017-03/142051.htm

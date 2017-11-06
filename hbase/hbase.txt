@@ -1,0 +1,43 @@
+1、Hbase安装配置之伪分布式模式   http://blog.csdn.net/pdw2009/article/details/21261417
+
+2、HBase安装配置（整合到hadoop）  http://blog.csdn.net/hguisu/article/details/7244413/
+
+3、伪分布式集群环境hadoop、hbase、zookeeper搭建   http://blog.csdn.net/baolibin528/article/details/43768867
+
+	（1）、配置hbase-env.sh:export JAVA_HOME=/usr/local/jdk;export HBASE_MANAGES_ZK=true
+	（2）、修改hbase-site.xml
+		<property>  
+	      		<name>hbase.rootdir</name>  
+	            	<value>hdfs://m:9000/hbase</value>  
+		</property>  
+		<property>  
+			<name>hbase.cluster.distributed</name>  
+			<value>true</value>  
+		</property>  
+		<property>  
+			<name>hbase.zookeeper.quorum</name>  
+			<value>m</value>  
+		</property>  
+		<property>  
+			<name>dfs.replication</name>  
+			<value>1</value>  
+		</property>
+
+
+4、zookeeper安装和配置（单机模式、伪集群方式、集群模式）  http://coolxing.iteye.com/blog/1871009
+
+	伪集群方式：
+	（1）、将zookeeper拷贝至3分。zookerrper0、zookeeper1、zookeeper2
+	（2）、更改zook.cfg
+		tickTime=2000    
+		initLimit=5    
+		syncLimit=2    
+		dataDir=/Users/apple/zookeeper0/data    
+		dataLogDir=/Users/apple/zookeeper0/logs    
+		clientPort=2181  
+		server.0=127.0.0.1:8880:7770    
+		server.1=127.0.0.1:8881:7771    
+		server.2=127.0.0.1:8882:7772
+		注：另外两个需要修改dataDir、clientPort、dataLogDir
+	（3）、在之前设置的dataDir中新建myid文件, 写入一个数字, 该数字表示这是第几号server. 该数字必须和zoo.cfg文件中的server.X中的X一一对应./Users/apple/zookeeper0/data/myid文件中写入0, /Users/apple/zookeeper1/data/myid文件中写入1, /Users/apple/zookeeper2/data/myid文件中写入2.
+	（4）、启动zookeeper: zkService.sh start
