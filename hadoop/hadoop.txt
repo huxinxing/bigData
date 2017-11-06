@@ -11,8 +11,18 @@
 	（3）、下载hadoop,并设置hadoop环境变量
 	（4）、修改4个配置文件
 	（5）、格式化hdfs
+		>hadoop namenode -format
 	（6）、启动hadoop
+		>./sbin/start-all.sh
 	（7）、查看hadoop运行情况
+	 	>jps如果存在
+		ResourceManager
+		NameNode
+		NodeManager
+		SecondaryNameNode
+		DataNode
+		Jps
+		则说明运行成功
 
 
 
