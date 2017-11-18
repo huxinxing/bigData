@@ -1,0 +1,9 @@
+1、Spark Streaming Hello World案例动手实践其工作原理
+
+	（1）、生么是Spark Streaming：其中介绍了SparkStreamin是什么，同时比较了Hadoop MR、Storm之间的优缺点；重点是介绍了企业级最佳实践
+	（2）、通过Spark Streaming动手实战wordCount实例
+		>打开端口：nc -lk 9999
+		>运行 ./bin/run-example streaming.NetworkWordCount localhost 9999
+
+
+/usr/local/spark/bin/spark-submit --class com.dt.spark.sparkstreaming.OnlineBlackListFilter --master spark://Master:7077 /root/Documents/WordCount.jar	
