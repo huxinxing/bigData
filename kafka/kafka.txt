@@ -61,4 +61,29 @@
 	>>default.replication.factor=1;是否允许自动创建topic若是false，就需要通过命令创建topic
 	>>num.partitions=1；每个topic的分区个数，若是在topic创建时候没有指定的话会被topic创建时的指定参数覆盖
 
+5、kafka常用命令
 
+	（1）、查看topic
+		./kafka-topics.sh --list --zookeeper ml:2181,ml:2182,ml:2183
+	（2）、查看topic详细信息
+		./kafka-topics.sh --zookeeper ml:2181 --describe --topic mlkafka
+	（3）、为topic增加副本
+		./kafka-ressign-partitions.sh --zookeeper ml:2181 --reassignment-json-file json/partitions-to-move.json --execute
+	（4）、创建topic
+		./kafka-topics.sh --create --zookeeper ml:2181 --replication-factor 1 --partitions 1 --topic testKJ1
+	（5）、为topic增加partition
+		./kafka-topics.sh --zookeeper ml:2181 --alter --partitions 20 --topic testKJ1
+	（6）、kafka生产者客户端命令
+		./kafka-console-producer.sh --broker-list ml:9092 --topic testKJ1
+	（7）、kafka消费者客户端命令
+		./kafka-console-consumer.sh --zookeeper ml:2181 -from-beginning --topic testKJ1
+	（8）、kafka服务启动
+		./kafka-server-start.sh -daemon ../config/server.properties
+	（9）、下线broker
+		./kafka-run-class.sh kafka.admin.ShutdownBroker --zookeeper ml:2181 --broker #brokerId# --num.retries 3 --retry.interval.ms 60 shutdown broker
+	（10）、删除topic
+		./kafka-run-class.sh kafka.admin.DeleteTopicCommand --topic testKJ1 --zookeeper ml:2181
+		./kafka-topics.sh --zookeeper ml:2181 --delete testKJ1
+	（11）、查看consumer组内消费的offset
+		./kafka-run-class.sh kafka.tools.ConsumerOffsetChecker --zookeeper ml:2181 --group test --topic testKJ1
+		./kafka-consumer-offset-checker.sh --zookeeper ml:2181 --group group1 --topic group1
