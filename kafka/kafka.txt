@@ -87,3 +87,22 @@
 	（11）、查看consumer组内消费的offset
 		./kafka-run-class.sh kafka.tools.ConsumerOffsetChecker --zookeeper ml:2181 --group test --topic testKJ1
 		./kafka-consumer-offset-checker.sh --zookeeper ml:2181 --group group1 --topic group1
+	
+
+	补充：
+
+
+	（1）、创建topic，设置分区和设置副本
+		
+		./kafka-topics.sh --zookeeper ml:2181,ml:2182,ml:2183 --create --replication-factor 2 --partitions 2 --topic mykafka2
+
+
+
+6、kafka的基本概念  http://blog.sina.com.cn/s/blog_a6fcd4a00102vved.html
+	
+	1、broker,broker是kafka集群的服务，及一个工作进程。一台机器可以用一个或者是多个broker进程，通过制定server.properties来区分不同的进程。由zookeeper选出一个controller
+	2、topic,在kafka集群里可以理解为一个抽象的queue（队列），消息的写入和读取都要指定topic。一个kafka集群中topic对应的物理上不同broker上的partition
+	3、partition,是物理上的概念，以文件夹的形式存在，一个或者多个partition组成一个topic,partition有index,log和message log组成，index放着磁盘定位，message放着实际的数据内容
+	4、replication,replication是partition的备份，只有一个replication会成为leader,其他的都是follow
+	5、producer,是kafka的生产者，也就是消息的输入者，对于一个producer可以指定消息传输给哪个topic,更具体还可以指定到那个partition上
+	6、consumer,consumer是kafka的消费者，consumer需要制定group，不指定则是默认的group,一个group只能消费一个partition,也就是说，假设一个topic有3个partition，一个group有4个consumer,则只有3个consumer能订阅数据，partition内才是真正的有序队列，topic不能保存有序性
