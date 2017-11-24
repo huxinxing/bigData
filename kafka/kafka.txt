@@ -106,3 +106,14 @@
 	4、replication,replication是partition的备份，只有一个replication会成为leader,其他的都是follow
 	5、producer,是kafka的生产者，也就是消息的输入者，对于一个producer可以指定消息传输给哪个topic,更具体还可以指定到那个partition上
 	6、consumer,consumer是kafka的消费者，consumer需要制定group，不指定则是默认的group,一个group只能消费一个partition,也就是说，假设一个topic有3个partition，一个group有4个consumer,则只有3个consumer能订阅数据，partition内才是真正的有序队列，topic不能保存有序性
+
+
+
+7、kafka中partitions和消费者对应关系   http://www.jianshu.com/p/6233d5341dfe
+
+	1、消费者多于partition;同一个partition内的消息只能被同一个组中的一个consumer消费，当消费者数量多于partition的数量时，多余的消费者空闲；也就是说如果只有一个partition你在同一组启动多少个consumeer都没有用，partition的数量决定了此topic在同一组中被可被均衡的程度，例如partition=4,则可在同一组中被最多4个consumer均衡消费
+	2、消费者少于和等于partition;消息在同一组之间的消费者之间均分
+	3、多个消费组；启动多个消费组，则会使同一个消息被消费多次
+	总结：1个partition只能被同组的一个consumer消费，同组的consumer则起到均衡的效果
+
+
